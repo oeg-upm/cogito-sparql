@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+  <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/@triply/yasgui/build/yasgui.min.js"></script>
+</head>
+<body>
+  <container>
+    {% block content %}
+    {% endblock %}
+  </container>
+  <div id="yasgui"></div>
+  <script>
+    const yasgui = new Yasgui(document.getElementById("yasgui"));
+  </script>
+</body>
