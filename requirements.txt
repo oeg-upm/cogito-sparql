@@ -2,16 +2,3 @@ flask
 requests
 SPARQLWrapper==1.8.5
 flasgger==0.9.1
-
-
-
-{
-    'query' : 'select * 
-    from <http://xmlns.com/foaf/0.1/>
-    {
-    service <http://dbpedia.org/sparql> {
-        [] a ?Concept
-    }
-    }
-    limit 10'
-}

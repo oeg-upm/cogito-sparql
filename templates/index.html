@@ -2,14 +2,73 @@
 <head>
   <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" type="text/css" />
   <script src="https://unpkg.com/@triply/yasgui/build/yasgui.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
 </head>
 <body>
-  <container>
+  <container align="center">
     {% block content %}
     {% endblock %}
   </container>
+  
   <div id="yasgui"></div>
+
+
+  <!-- <style>
+    .yasgui .autocompleteWrapper {
+      display: none !important;
+    }
+  </style> -->
+
   <script>
+
+    /*const yasgui = new Yasgui(document.getElementById("yasgui"), {
+      requestConfig: { endpoint: $("#endpoints option:selected").val() },
+      copyEndpointOnNewTab: false,
+    });*/
+
     const yasgui = new Yasgui(document.getElementById("yasgui"));
+
+    // remove things that make problems
+    /*
+    const x = document.querySelectorAll(".closeTab");
+    const plus = document.querySelectorAll(".addTab");
+
+    remove(x);
+    remove(plus);
+
+    function remove(value){
+      for (const x of value){
+        x.remove();
+      }
+    }
+    */
+
+    $("#queryIcon").on('click', makeQuery);
+
+
+    function makeQuery(clicked){
+      const yasqe = yasgui.getTab().yasqe;
+      const yasr = yasgui.getTab().yasr;
+      $.ajax({
+        type: 'GET',
+        url: '/sparql',
+        data: {
+            query : yasqe.getValue()
+        },
+        success: (data, textStatus, jqXHR) => {
+            console.log(data, textStatus, jqXHR);
+            // get parent of button clicked
+            console.log(data);
+            yasr.setResponse(data);
+        },
+        contentType: 'application/json',
+        dataType: 'json'
+    });
+  }
+
   </script>
 </body>

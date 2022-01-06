@@ -1,20 +1,17 @@
 from flask import Flask, render_template, request, jsonify
 from functions.execute_query import execute_query
+import json
 
 app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def home():
-    return render_template('sparql.html')
-
-# @app.route("/", methods=['POST'])
-# def query_manager():
-#     return render_template('sparql.html')
+    return render_template('enpoint.html')
 
 
-@app.route("/query" , methods=['POST'])
+@app.route("/sparql" , methods=['GET'])
 def get_query():
-    query = request.args.get('query')
+    query = request.args.get("query")
     results = execute_query(query)
     return jsonify(results)
 
@@ -22,3 +19,7 @@ def get_query():
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)
+
+
+
+# SELECT * WHERE{ SERVICE <https://wothive.linkeddata.es/api/search/sparql> {?s ?p ?o.} SERVICE <https://localhost:8890/sparql> { ?s1 ?p1 ?o1. } }
