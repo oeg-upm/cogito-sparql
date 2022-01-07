@@ -33,7 +33,7 @@
     const yasgui = new Yasgui(document.getElementById("yasgui"));
 
     // remove things that make problems
-    /*
+    
     const x = document.querySelectorAll(".closeTab");
     const plus = document.querySelectorAll(".addTab");
 
@@ -45,10 +45,11 @@
         x.remove();
       }
     }
-    */
+    
 
-    $("#queryIcon").on('click', makeQuery);
-
+    
+    //$("#queryIcon").on('click', makeQuery);
+    $(document).on('click', makeQuery);
 
     function makeQuery(clicked){
       const yasqe = yasgui.getTab().yasqe;
@@ -62,7 +63,7 @@
         success: (data, textStatus, jqXHR) => {
             console.log(data, textStatus, jqXHR);
             // get parent of button clicked
-            console.log(data);
+            //console.log(data);
             yasr.setResponse(data);
         },
         contentType: 'application/json',
