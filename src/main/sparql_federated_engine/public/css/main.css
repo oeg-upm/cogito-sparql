@@ -1,0 +1,18 @@
+table.tb {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tb th, .tb td {
+  padding: 5px;
+  border: solid 1px #777;
+  text-align: center;
+}
+.tb th {
+  background-color: lightblue;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

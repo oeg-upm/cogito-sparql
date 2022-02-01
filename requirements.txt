@@ -1,4 +1,0 @@
-flask
-requests
-SPARQLWrapper==1.8.5
-flasgger==0.9.1
