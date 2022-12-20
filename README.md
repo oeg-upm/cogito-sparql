@@ -3,11 +3,7 @@
 STEPS:
 
 ```
-npm install
-```
-
-```
-npm start
+pip install -r requirements.txt
 ```
 
 Query Example:

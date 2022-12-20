@@ -14,19 +14,19 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
   </head>
   <body>
     
     <div class="container">
-        <a href="https://cogito-project.eu/"><img src="/logo/logo.jpg" width="500" alt="COGITO logo" class="img-rounded center"></a>
+        <a href="https://cogito-project.eu/"><img src="{{ url_for('static',filename='/logo/logo.jpg') }}" width="500" alt="COGITO logo" class="img-rounded center"></a>
         <table class="tb" id="members">
             <tr>
               <th colspan="2">Endpoints</th>
             </tr>
             <tr>
-              <td>https://data.cogito.iot.linkeddata.es/sparql</td>
-              <td>https://wothive.linkeddata.es/api/search/sparql</td>
+              <td>Construction Knowledge Graph: https://data.cogito.iot.linkeddata.es/sparql</td>
+              <td>Digital Twin Platform Knowledge Graph: https://data.cogito.iot.linkeddata.es/tdd/api/search/sparql</td>
             </tr>
           </table>
     </div>
@@ -48,18 +48,18 @@
             Built with <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
             Icons from <a target="_blank" href="http://glyphicons.com/">Glyphicons</a>
             <br>
-            Latest revision February, 2022
+            Latest revision December, 2022
             <br>
             <p>&copy; Ontology Engineering Group</p>
             </div>
             <div class="col-md-2">
-            <a href="https://oeg.fi.upm.es/" target="_blank"><img src="/logo/logo.gif" alt="OEG logo" class="img-rounded"
+            <a href="https://oeg.fi.upm.es/" target="_blank"><img src="{{ url_for('static',filename='/logo/logo.gif') }}" alt="OEG logo" class="img-rounded"
                 class="img-responsive" width="30%" /></a>
 
-            <a href="http://fi.upm.es/" target="_blank"><img src="/logo/fiLogo.png" alt="FI logo" class="img-rounded"
+            <a href="http://fi.upm.es/" target="_blank"><img src="{{ url_for('static',filename='/logo/fiLogo.png') }}" alt="FI logo" class="img-rounded"
                 class="img-responsive" width="30%" /></a>
 
-            <a href="https://www.upm.es/" target="_blank"><img src="/logo/upmlogo.png" alt="UPM logo" class="img-rounded"
+            <a href="https://www.upm.es/" target="_blank"><img src="{{ url_for('static',filename='/logo/upmlogo.png') }}" alt="UPM logo" class="img-rounded"
                 class="img-responsive" width="30%" /></a>
             </div>
         </div>
@@ -69,6 +69,6 @@
 
     <script src="https://cdn.jsdelivr.net/yasr/2.4/yasr.bundled.min.js"></script>
     <script src="https://cdn.jsdelivr.net/yasqe/2.2/yasqe.bundled.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="{{ url_for('static',filename='/js/main.js') }}"></script>
   </body>
 </html>
